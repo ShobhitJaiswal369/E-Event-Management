@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="pay.css">
+</head>
+<body>
+    <div class="payment-container">
+        <h1>Payment Page</h1>
+        <form id="payment-form">
+            <div class="form-group">
+                <label for="payment-method">Select Payment Method</label>
+                <select id="payment-method" name="payment-method">
+                    <option value="credit-card">Credit/Debit Card</option>
+                    <option value="bank-transfer">Bank Transfer</option>
+                    <option value="digital-wallet">Digital Wallet</option>
+                    <option value="upi">UPI</option>
+                    <option value="net-banking">Net Banking</option>
+                </select>
+            </div>
+
+            <!-- Credit/Debit Card Payment Fields -->
+            <div id="credit-card-fields" class="payment-fields">
+                <div class="form-group">
+                    <label for="name">Name on Card</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" name="card-number">
+                </div>
+                <div class="form-group">
+                    <label for="expiry-date">Expiry Date (MM/YY)</label>
+                    <input type="text" id="expiry-date" name="expiry-date">
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv">
+                </div>
+            </div>
+
+          
+
+            <!-- Bank Transfer Payment Fields -->
+            <div id="bank-transfer-fields" class="payment-fields">
+                <div class="form-group">
+                    <label for="account-name">Account Name</label>
+                    <input type="text" id="account-name" name="account-name">
+                </div>
+                <div class="form-group">
+                    <label for="account-number">Account Number</label>
+                    <input type="text" id="account-number" name="account-number">
+                </div>
+                <div class="form-group">
+                    <label for="bank-name">Bank Name</label>
+                    <input type="text" id="bank-name" name="bank-name">
+                </div>
+            </div>
+
+            <!-- Digital Wallet Payment Fields -->
+            <div id="digital-wallet-fields" class="payment-fields">
+                <div class="form-group">
+                    <label for="wallet-id">Wallet ID</label>
+                    <input type="text" id="wallet-id" name="wallet-id">
+                </div>
+                <div class="form-group">
+                    <label for="wallet-provider">Wallet Provider</label>
+                    <input type="text" id="wallet-provider" name="wallet-provider">
+                </div>
+            </div>
+
+            <!-- UPI Payment Fields -->
+            <div id="upi-fields" class="payment-fields">
+                <div class="form-group">
+                    <label for="upi-id">UPI ID</label>
+                    <input type="text" id="upi-id" name="upi-id">
+                </div>
+                <div class="form-group">
+                    <label for="upi-provider">UPI Provider</label>
+                    <input type="text" id="upi-provider" name="upi-provider">
+                </div>
+            </div>
+
+            <!-- Net Banking Payment Fields -->
+            <div id="net-banking-fields" class="payment-fields">
+                <div class="form-group">
+                    <label for="bank-select">Select Bank</label>
+                    <select id="bank-select" name="bank-select">
+                        <option value="">Select your bank</option>
+                        <option value="bank1">Bank 1</option>
+                        <option value="bank2">Bank 2</option>
+                        <option value="bank3">Bank 3</option>
+                        <!-- Add more banks as needed -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="account-number">Account Number</label>
+                    <input type="text" id="account-number" name="account-number">
+                </div>
+            </div>
+
+            <button type="submit">Pay Now</button>
+        </form>
+        <div id="message"></div>
+    </div>
+    <script src="pay.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+        :root {
+            --theme-color: #3867d6;
+        }
+
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: 0.2s linear;
+        }
+
+        form {
+            background: var(--theme-color);
+            color: #fff;
+            padding: 1.5rem 0;
+            font-size: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 1.5rem;
+            transform: scale(1.03);
+            background: #333;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        div {
+            background: var(--theme-color);
+            color: #fff;
+            padding: 1.5rem 0;
+            font-size: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        #grid {
+            background: var(--theme-color);
+            color: #fff;
+            padding: 1.5rem 0;
+            font-size: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 1.5rem;
+            transform: scale(1.03);
+            background: #333;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        label #total {
+            background: var(--theme-color);
+            color: #fff;
+            padding: 1.5rem 0;
+            font-size: 2rem;
+            display: grid;
+            grid-column: 2/-1;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 1.5rem;
+            transform: scale(1.03);
+            background: #333;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Book Your Event
+    </div>
+    <div id="grid">
+        <div id="item1">Click To Add</div>
+        <div id="item2">Service Name</div>
+        <div id="item3">Price</div>
+    </div>
+    
+    <form id="service-form" action="/book" method="POST">
+        <input type="checkbox" id="service1" name="service1" data-price="20">
+        <label for="service1">Staff Service 🤵</label>
+        <label for="price1">20 K</label>
+    </form>
+    <form id="service-form" action="/book" method="POST">
+        <input type="checkbox" id="service2" name="service2" data-price="20">
+        <label for="service2">Food Service 🥤🥪</label>
+        <label for="price2">20 K</label>
+    </form>
+    <form id="service-form" action="">
+        <input type="checkbox" id="service3" name="service3" data-price="20">
+        <label for="service3">Hall Service 🏢</label>
+        <label for="price3">20 K</label>
+    </form>
+    <form id="service-form">
+        <input type="checkbox" id="service4" name="service4" data-price="20">
+        <label for="service4">Decoration Service 🎉</label>
+        <label for="price4">20 K</label>
+    </form>
+    <form id="service-form">
+        <input type="checkbox" id="service5" name="service5" data-price="20">
+        <label for="service5">Invitation Card 📜</label>
+        <label for="price5">20 K</label>
+    </form>
+    <form id="service-form">
+        <input type="checkbox" id="service6" name="service6" data-price="20">
+        <label for="service6">Photos & Music 🎶</label>
+        <label for="price6">20 K</label>
+        <label for="total">Total Amount</label>
+        <label for="baank"> </label>
+        <input type="text" id="total-amount" readonly>    
+    </form>
+
+    <div>
+        <a href="pay.html" target="_blank" class="btn">Proceed</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const totalAmountInput = document.getElementById('total-amount');
+            let totalAmount = 0;
+
+            const updateTotalAmount = () => {
+                totalAmount = 0;
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        totalAmount += parseInt(checkbox.getAttribute('data-price'));
+                    }
+                });
+                totalAmountInput.value = `${totalAmount} K`;
+            };
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateTotalAmount);
+            });
+
+            // Initialize the total amount on page load in case any checkboxes are pre-checked
+            updateTotalAmount();
+        });
+
+        src="calculation.js"
+    </script>
+</body>
+</html>
